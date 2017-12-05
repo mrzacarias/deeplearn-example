@@ -7,16 +7,12 @@ async function runExample() {
 
   const result = math.add(a, b);
 
-  // Option 1: With async/await.
-  // Caveat: in non-Chrome browsers you need to put this in an async function.
-  console.log(await result.data());  // Float32Array([3, 4, 5])
+  console.log('Option 1: With async/await.', await result.data());
 
-  // Option 2: With a Promise.
-  result.data().then(data => console.log(data));
+  result.data().then(data => console.log('Option 2: With a Promise.', data));
 
-  // Option 3: Synchronous download of data.
   // This is simpler, but blocks the UI until the GPU is done.
-  console.log(result.dataSync());
+  console.log('Option 3: Synchronous download of data.', result.dataSync());
 }
 
 runExample();
